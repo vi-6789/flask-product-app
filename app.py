@@ -1,15 +1,16 @@
 from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
+import os
 
 app = Flask(__name__)
 
-# Thiết lập kết nối cơ sở dữ liệu
+# Thiết lập kết nối cơ sở dữ liệu từ biến môi trường
 db = mysql.connector.connect(
-    host="ballast.proxy.rlwy.net",
-    port=58123,
-    user="root",
-    password="GBPCDocCJnhHBEsnYjiseNfjKKzcOnWJ",
-    database="railway"
+    host=os.environ.get("DB_HOST"),
+    user=os.environ.get("DB_USER"),
+    password=os.environ.get("DB_PASSWORD"),
+    database=os.environ.get("DB_NAME"),
+    port=int(os.environ.get("DB_PORT", 3306))
 )
 cursor = db.cursor()
 
