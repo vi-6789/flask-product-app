@@ -69,5 +69,11 @@ def delete_product(id):
 
     return render_template('delete_product.html', product=product)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+import os
+db = mysql.connector.connect(
+    host=os.environ.get("DB_HOST"),
+    user=os.environ.get("DB_USER"),
+    password=os.environ.get("DB_PASSWORD"),
+    database=os.environ.get("DB_NAME"),
+    port=int(os.environ.get("DB_PORT", 3306))
+)
