@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa Sản Phẩm</title>
+</head>
+<body>
+    <h1>Sửa Sản Phẩm</h1>
+    <form method="POST">
+        <label for="name">Tên sản phẩm:</label>
+        <input type="text" id="name" name="name" value="{{ product[1] }}" required><br>
+        <label for="description">Mô tả:</label>
+        <input type="text" id="description" name="description" value="{{ product[2] }}" required><br>
+        <label for="price">Giá:</label>
+        <input type="number" id="price" name="price" value="{{ product[3] }}" required><br>
+        <button type="submit">Cập nhật</button>
+    </form>
+    <a href="/">Quay lại</a>
+</body>
+</html>
